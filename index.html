@@ -1,0 +1,576 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard Builder</title>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/css/plugins/choices.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/css/plugins/datatable.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/css/plugins/daterangepicker.css" />
+    <link rel="stylesheet" href="https://github.com/Loopple/loopple-public-assets/blob/main/riva-dashboard-tailwind/css/plugins/flatpickr.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/css/plugins/paginate.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/css/plugins/jsvectormap.min.css" />
+    <link rel="stylesheet" href="./assets/css/tailwind/tailwind.min.css">
+    <link rel="stylesheet" href="./assets/css/theme.css">
+    <link rel="stylesheet" href="./assets/css/loopple/loopple.css">
+</head>
+
+<body class="bg-white">
+    <aside class="group/sidebar flex flex-col shrink-0 lg:w-[300px] w-[250px] transition-all duration-300 ease-in-out -translate-x-full lg:translate-x-0 m-0 fixed z-40 inset-y-0 left-0 lg:bg-light/30 bg-light border-r border-r-dashed border-r-neutral-200 sidenav fixed-start loopple-fixed-start" id="sidenav-main" data-sidebar="true" data-sidebar-value="469">
+        <div class="flex shrink-0 px-8 items-center justify-between h-[96px]">
+            <a class="transition-colors duration-200 ease-in-out" href="javascript:void(0)">
+                <img alt="Logo" src="https://loopple.s3.eu-west-3.amazonaws.com/images/9CgbEPWtKm4weecFafCj2ImA7IeLey9Sguh7WtrT.png" class="inline">
+            </a>
+            <div class="relative ml-5 group">
+                <button class="peer text-secondary-dark bg-transparent flex items-center h-[calc(1.5em_+_1.55rem_+_2px)] w-auto text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-[.95rem] transition-colors duration-150 ease-in-out bg-primary shadow-none [border:_0] justify-end">
+
+                    <a href="javascript:void(0)" class="lg:hidden flex" onclick="(function(){document.querySelector('.group\\/sidebar').classList.toggle('-translate-x-full');})();">
+                        <span class="p-0 m-0 -mr-1 leading-none shrink-0 rounded-[.195rem] text-secondary-dark  group-hover:text-primary group-[.open]:text-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </span>
+                    </a>
+                </button>
+            </div>
+        </div>
+
+        <div class="hidden border-b border-dashed lg:block dark:border-neutral-700/70 border-neutral-200"></div>
+
+        <div class="flex items-center justify-between px-8 py-5">
+            <div class="flex items-center mr-5">
+                <div class="mr-5">
+                    <div class="inline-block relative shrink-0 cursor-pointer rounded-[.95rem]">
+                        <img class="w-[40px] h-[40px] shrink-0 inline-block rounded-[.95rem]" src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/avatars/avatar1.jpg" alt="avatar image">
+                    </div>
+                </div>
+                <div class="mr-2 ">
+                    <a href="javascript:void(0)" class="dark:hover:text-primary hover:text-primary transition-colors duration-200 ease-in-out text-[1.075rem] font-medium dark:text-neutral-400/90 text-secondary-inverse">Robert Jason</a>
+                    <span class="text-secondary-dark dark:text-stone-500 font-medium block text-[0.85rem]">SEO Manager</span>
+                </div>
+            </div>
+            <a class="inline-flex relative items-center group justify-end text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-[.95rem] transition-colors duration-150 ease-in-out text-dark bg-transparent shadow-none border-0" href="javascript:void(0)">
+                <span class="leading-none transition-colors duration-200 ease-in-out peer shrink-0 group-hover:text-primary text-secondary-dark">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                </span>
+            </a>
+        </div>
+
+        <div class="hidden border-b border-dashed lg:block dark:border-neutral-700/70 border-neutral-200"></div>
+
+        <div class="relative pl-3 my-5 overflow-y-scroll">
+            <div class="flex flex-col w-full font-medium">
+
+                <!-- menu item -->
+                <div>
+                    <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
+                        <a href="./index.html" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Home</a>
+                    </span>
+                </div>
+
+
+                <!-- menu item -->
+                <div>
+                    <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
+                        <a href="./examples/Invoices.html" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Invoices</a>
+                    </span>
+                </div>
+
+                <!-- menu item -->
+                <div>
+                    <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
+                        <a href="./examples/Vendors.html" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Vendors</a>
+                    </span>
+                </div>
+
+                <!-- menu item -->
+                <div class="block pt-5 pb-[.15rem]">
+                    <div class="px-4 py-[.65rem]">
+                        <span class="font-semibold text-[0.95rem] uppercase dark:text-neutral-500/80 text-secondary-dark">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- menu item -->
+                <div>
+                    <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
+                        <a href="./examples/Business_Credit_Scores.html" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Business Credit Scores</a>
+                    </span>
+                </div>
+
+
+                <!-- menu item -->
+                <div>
+                    <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
+                        <a href="./examples/Corporate_Credit_Line.html" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Corporate Credit Line</a>
+                    </span>
+                </div>
+
+                <!-- menu item -->
+                <div>
+                    <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
+                        <a href="javascript:;" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Rewards</a>
+                    </span>
+                </div>
+
+                <!-- menu item -->
+                <div>
+                    <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
+                        <a href="javascript:;" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Products</a>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+    </aside>
+    <div class="lg:ml-[300px] relative h-full max-h-screen rounded-xl transition-all duration-200 bg-white" id="panel">
+        <nav class="flex h-28 mb-5 lg:h-[96px]" id="navbarTop" navbar-scroll="true" data-navbar="true" data-navbar-value="512">
+            <div class="sm:flex items-stretch justify-between grow lg:mb-0 mb-5 py-5 px-10" id="abId0.5381092873980009">
+                <div class="flex flex-col flex-wrap justify-center mb-5 mr-3 lg:mb-0">
+                    <span class="my-0 flex text-dark font-semibold text-[1.35rem]/[1.2] flex-col justify-center">The Wall</span>
+                    <span class="pt-1 text-secondary-dark text-[0.95rem] font-medium">
+                        See all your notifications
+                    </span>
+                </div>
+                <div class="flex items-center lg:shrink-0 lg:flex-nowrap" id="abId0.16693410000037545">
+                    <div class="relative flex items-center lg:ml-4 sm:mr-0 mr-2" id="abId0.48821567922295084" abineguid="578C6FA61BAD461C8932E3212BC3C8DF">
+                        <span class="absolute ml-4 leading-none -translate-y-1/2 top-1/2 text-muted">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path>
+                            </svg>
+                        </span>
+                        <input class="block w-full py-3 pl-12 pr-4 text-base font-medium leading-normal bg-white border border-solid outline-none appearance-none placeholder:text-secondary-dark peer text-stone-500 border-stone-200 bg-clip-padding rounded-2xl" placeholder="Search..." type="text">
+                        <span onclick="(() => { this.previousElementSibling.value=''})()" class="absolute right-0 left-auto mr-4 leading-none -translate-y-1/2 peer-placeholder-shown:hidden top-1/2 hover:text-primary text-muted">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="relative lg:hidden flex items-center sm:ml-2 ml-auto">
+                        <a href="javascript:void(0)" class="flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary" onclick="(function(){document.querySelector('.group\\/sidebar').classList.toggle('-translate-x-full');})();">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="relative flex items-center ml-2 lg:ml-4">
+                        <a href="./examples/Settings.html" class="flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary ">
+                        </a>
+                        <div id="magicbell-inbox">
+                            <div>
+                                <div aria-expanded="false"><a role="button" aria-label="Notifications" data-testid="bell" data-magicbell-bell="true" class="magicbell-embeddable-1j56y57">
+                                        <div class="magicbell-embeddable-l12v88"><svg width="24px" height="24px" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M13.5002 1.35008C14.8661 1.35476 16.1839 1.85467 17.2092 2.75708C18.2345 3.65948 18.8977 4.90313 19.0757 6.25733C19.0757 6.33833 19.0757 6.41933 19.0757 6.50033C19.0789 6.54978 19.0789 6.59938 19.0757 6.64883V6.75008C19.0757 6.83108 19.0757 6.91883 19.0757 6.99983V10.1251C19.159 12.2833 19.8161 14.3803 20.9792 16.2001C21.6542 17.4151 21.9512 17.9618 22.12 18.2251V18.2926H4.84673L4.88048 18.2251C5.04923 17.9483 5.34623 17.4083 6.00773 16.2001C7.15426 14.3755 7.7949 12.2789 7.86398 10.1251V6.98633C7.86398 6.90533 7.86398 6.82433 7.86398 6.73658V6.68258C7.86077 6.63313 7.86077 6.58353 7.86398 6.53408V6.53408C7.87283 6.44344 7.88634 6.35332 7.90448 6.26408C8.07875 4.90403 8.74341 3.65435 9.7737 2.74958C10.804 1.84482 12.1291 1.34718 13.5002 1.35008V1.35008ZM13.5002 8.14381e-05C11.8073 0.00217804 10.1728 0.619518 8.90126 1.73713C7.62966 2.85474 6.80762 4.39643 6.58823 6.07508C6.58823 6.18308 6.58823 6.28433 6.54773 6.39233C6.5413 6.47546 6.5413 6.55896 6.54773 6.64208C6.54117 6.76349 6.54117 6.88517 6.54773 7.00658V10.1251C6.46641 12.0445 5.8771 13.9079 4.83998 15.5251C3.72623 17.5501 3.69923 17.5501 3.69923 17.5501L2.94323 18.9001C2.88069 18.9728 2.84212 19.063 2.83278 19.1585C2.82344 19.2539 2.84379 19.3499 2.89105 19.4333C2.93831 19.5168 3.01018 19.5836 3.09684 19.6247C3.1835 19.6658 3.28072 19.6791 3.37523 19.6628H23.6252C23.7092 19.6655 23.7923 19.6453 23.8658 19.6046C23.9392 19.5638 24.0003 19.5039 24.0425 19.4313C24.0847 19.3586 24.1065 19.2759 24.1055 19.1919C24.1045 19.1079 24.0809 19.0257 24.037 18.9541L23.281 17.6041C23.281 17.6041 23.281 17.6041 22.1402 15.5791C21.113 13.9408 20.5421 12.0579 20.4865 10.1251V6.98633C20.493 6.86492 20.493 6.74324 20.4865 6.62183C20.4929 6.53871 20.4929 6.45521 20.4865 6.37208C20.4865 6.26408 20.4865 6.16283 20.446 6.05483C20.2227 4.3735 19.3942 2.83119 18.1157 1.71669C16.8372 0.602178 15.1963 -0.00811186 13.5002 8.14381e-05V8.14381e-05Z" fill="#ffffff"></path>
+                                                <path d="M18.4544 23.2402C18.2681 23.5004 18.0628 23.7463 17.8401 23.976C17.2722 24.5502 16.5983 25.0087 15.8556 25.326C15.1152 25.6377 14.32 25.7982 13.5167 25.7982C12.7134 25.7982 11.9182 25.6377 11.1779 25.326C10.4352 25.0087 9.76121 24.5502 9.19335 23.976C8.96872 23.748 8.76327 23.502 8.5791 23.2402" stroke="#ffffff" stroke-width="1.35" stroke-miterlimit="10" stroke-linecap="round"></path>
+                                            </svg></div>
+                                    </a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="w-full px-10 py-6 mx-auto loopple-min-height-78vh text-slate-500">
+            <script>
+                function openTab(tabName) {
+                  // Hide all tab contents
+                  document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
+                
+                  // Deactivate all tabs
+                  document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+                
+                  // Show the selected tab content
+                  document.getElementById(tabName + 'Tab').classList.remove('hidden');
+                
+                  // Activate the clicked tab
+                  document.querySelector(`[onclick="openTab('${tabName}')"]`).classList.add('active');
+                }
+            </script>
+            <div class="relative flex flex-col break-words min-w-0 md:h-full bg-clip-border rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-900 mb-5">
+                <!-- card body  -->
+                <div class="flex-auto block py-8 px-9 border-black border-2 rounded-2xl">
+                    <div class="flex flex-wrap items-center h-full -mx-3">
+                        <div class="w-7/12 max-w-full px-3">
+                            <div class="mb-6 text-white">
+                                <span class="block font-medium opacity-75 text-base mr-2">Better manage your vendor passport</span>
+                                <span class="font-semibold text-[2.25rem]">Welcome to "The Wall"</span>
+                            </div>
+                            <span class="text-white/75 font-medium mb-8 text-[1.075rem] block">Access exclusive vendor relationships from the walls repository and track special metrics not found anywhere else.</span>
+                            <div class="flex flex-wrap items-center flex-auto gap-5 mb-10 xl:gap-12 xl:mb-20">
+                                <div class="flex items-center">
+                                    <div class="relative inline-block mr-3 rounded-full shrink-0">
+                                        <span class="w-[30px] h-[30px] bg-indigo-400 rounded-full flex items-center justify-center font-medium text-secondary-inverse bg-center">
+                                            <span class="leading-none text-white">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"></path>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div class="text-white">
+                                        <span class="block opacity-75 font-medium text-[.85rem]">Total Vendors</span>
+                                        <span class="font-semibold text-[0.95rem]">3,009</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="relative inline-block mr-3 rounded-full shrink-0">
+                                        <span class="w-[30px] h-[30px] bg-indigo-400 rounded-full flex items-center justify-center font-medium text-secondary-inverse bg-center">
+                                            <span class="leading-none text-white">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"></path>
+                                                </svg>
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div class="text-white">
+                                        <span class="block opacity-75 font-medium text-[.85rem]">Accessible Credit Available </span>
+                                        <span class="font-semibold text-[0.95rem]">$17.5M+</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col gap-2 xl:gap-4 sm:flex-row">
+                                <a href="javascript:void(0)" class="shrink-0 inline-block text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-[.95rem] transition-colors duration-150 ease-in-out shadow-none px-5 py-3.5 hover:bg-info-dark active:bg-info-dark focus:bg-info-dark bg-yellow-200 border-2 border-black"> Read More </a>
+                                <a href="javascript:void(0)" class="inline-block shrink-0 text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-[.95rem] transition-colors duration-150 ease-in-out shadow-none [border:_0] px-5 py-3.5 hover:bg-white/40 active:bg-white/50 focus:bg-white/30 bg-indigo-200 text-indigo-700">Add Your Deal</a>
+                            </div>
+                        </div>
+                        <div class="w-5/12 max-w-full px-3">
+                            <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/travel-white.png" class="h-[225px]">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2 class="text-4xl">Get the most value out of Paygeon by completing these steps</h2>
+            <div class="flex flex-wrap -mx-3 mb-5 removable">
+                <div class="w-full max-w-full px-3 mb-6 sm:w-full sm:flex-none xl:mb-0">
+                    <div class="flex flex-wrap -mx-3 mb-5 removable">
+                        <div class="w-full max-w-full px-3 mb-6 sm:w-1/4 sm:flex-none xl:mb-0 xl:w-1/4">
+                            <div class="relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-light/30" src="https://loopple.s3.eu-west-3.amazonaws.com/images/9ezzKoPIhlcPoVp744Ea3GBoUju4gMQjwkBLj5Zc.gif">
+                                <!-- card body  -->
+                                <div class="flex flex-col items-start justify-between flex-auto py-8 px-9">
+                                    <div class="m-0">
+                                        <img class="w-[35px]" src="https://loopple.s3.eu-west-3.amazonaws.com/images/KjUImFOsF4JZbS0RsJtRDFedUtT4ESF7UtC6f43r.png" alt="youtube">
+                                    </div>
+                                    <div class="flex flex-col my-7">
+                                        <span class="text-secondary-inverse text-4xl tracking-[-0.115rem] font-bold">1</span>
+                                        <div class="m-0">
+                                            <span class="font-medium text-secondary-dark text-lg/normal">Unlock Automation</span>
+                                        </div>
+                                    </div>
+                                    <div class="w-full h-40 flex items-center justify-center cursor-pointer">
+                                        <div class="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:text-gray-200 dark:shadow-none group">
+                                            <span class="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full"></span>
+                                            <span class="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" class="w-5 h-5 text-green-400">
+                                                    <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                </svg>
+                                            </span>
+                                            <span class="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" class="w-5 h-5 text-green-400">
+                                                    <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+                                                </svg>
+                                            </span>
+                                            <span class="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200">Button</span>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <!-- end card body  -->
+                            </div>
+                        </div>
+                        <div class="w-full max-w-full px-3 mb-6 sm:w-1/4 sm:flex-none xl:mb-0 xl:w-1/4">
+                            <div class="relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-light/30">
+                                <!-- card body  -->
+                                <div class="flex flex-col items-start justify-between flex-auto py-8 px-9">
+                                    <div class="m-0">
+                                        <img class="w-[35px]" src="https://loopple.s3.eu-west-3.amazonaws.com/images/t9PTiKAzUAd7kjSzXJQamfETOeozHQQXiWo32xf7.gif" alt="youtube">
+                                    </div>
+                                    <div class="flex flex-col my-7">
+                                        <span class="text-secondary-inverse text-4xl tracking-[-0.115rem] font-bold">2</span>
+                                        <div class="m-0">
+                                            <span class="font-medium text-secondary-dark text-lg/normal">Unlock Payments</span>
+                                        </div>
+                                    </div>
+                                    <span class="inline-flex items-center px-2 py-1 mr-auto font-semibold text-center align-baseline rounded-lg text-base/none text-success bg-success-light border border-success">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"></path>
+                                        </svg>
+                                        7%
+                                    </span>
+                                </div>
+                                <!-- end card body  -->
+                            </div>
+                        </div>
+                        <div class="w-full max-w-full px-3 mb-6 sm:w-1/4 sm:flex-none xl:mb-0 xl:w-1/4">
+                            <div class="relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-light/30">
+                                <!-- card body  -->
+                                <div class="flex flex-col items-start justify-between flex-auto py-8 px-9">
+                                    <div class="m-0">
+                                        <img class="w-[35px]" src="https://loopple.s3.eu-west-3.amazonaws.com/images/mkO9XDQ2DHlP9M8OXLSfqA7fk4ydVRKO9FlVZpPm.gif" alt="youtube">
+                                    </div>
+                                    <div class="flex flex-col my-7">
+                                        <span class="text-secondary-inverse text-4xl tracking-[-0.115rem] font-bold">3</span>
+                                        <div class="m-0">
+                                            <span class="font-medium text-secondary-dark text-lg/normal">Unlock Credit</span>
+                                        </div>
+                                    </div>
+                                    <span class="inline-flex items-center px-2 py-1 mr-auto font-semibold text-center align-baseline rounded-lg text-base/none text-danger bg-danger-light border border-danger">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6L9 12.75l4.286-4.286a11.948 11.948 0 014.306 6.43l.776 2.898m0 0l3.182-5.511m-3.182 5.51l-5.511-3.181"></path>
+                                        </svg>
+                                        1.12%
+                                    </span>
+                                </div>
+                                <!-- end card body  -->
+                            </div>
+                        </div>
+                        <div class="w-full max-w-full px-3 mb-6 sm:w-1/4 sm:flex-none xl:mb-0 xl:w-1/4">
+
+                            <div class="relative flex flex-col min-w-0 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-light/30">
+                                <!-- card body  -->
+                                <div class="flex flex-col items-start justify-between flex-auto py-8 px-9">
+                                    <div class="m-0">
+                                        <img class="w-[35px]" src="https://loopple.s3.eu-west-3.amazonaws.com/images/tmh5tOZz3SZRH4hXJI9pYOU0jPn58Nak3ndE5Zqz.gif" alt="youtube">
+                                    </div>
+                                    <div class="flex flex-col my-7">
+                                        <span class="text-secondary-inverse text-4xl tracking-[-0.115rem] font-bold">4</span>
+                                        <div class="m-0">
+                                            <span class="font-medium text-secondary-dark text-lg/normal">Unlock Residuals</span>
+                                        </div>
+                                    </div>
+                                    <span class="inline-flex items-center px-2 py-1 mr-auto font-semibold text-center align-baseline rounded-lg text-base/none text-success bg-success-light border border-success">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-1">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"></path>
+                                        </svg>
+                                        9.4%
+                                    </span>
+                                </div>
+                                <!-- end card body  -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col break-words min-w-0 bg-clip-border rounded-xl bg-purple-700 mb-5">
+                        <!-- card body  -->
+
+                    </div>
+
+                    <div class="relative flex-[1_auto] flex flex-col break-words min-w-0 bg-clip-border rounded-[.95rem] border border-dashed border-stone-200 bg-white mb-5">
+                        <!-- card body  -->
+                        <div class="flex-auto block py-8 px-9">
+                            <div class="mb-16">
+                                <div class="mb-11">
+                                    <div class="mb-9">
+
+
+                                    </div>
+                                    <div class="relative mb-11 group">
+                                        <div class="bg-cover bg-center bg-no-repeat rounded-[.95rem] min-h-[325px]" style="background-image: url('https://res.cloudinary.com/hilnmyskv/image/upload/q_70,f_auto/v1686239512/Algolia_com_Blog_assets/Featured_images/ecommerce/what-is-a-multi-vendor-marketplace-and-how-to-build-one/i9kjfqxv1bqm371ejije.jpg')">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div>
+                                <div class="flex justify-center space-x-3.5 text-xl border-b-2 border-t-2 bg-black">
+                                    <button onclick="openTab('overview')" class="tab p-4 border-gray-200 border text-white active">Tier 1</button>
+                                    <button onclick="openTab('transactions')" class="tab p-4 border border-gray-200 text-white">Tier 2</button>
+                                    <button onclick="openTab('settings')" class="tab p-4 border border-gray-200 text-white">Tier 3</button>
+                                </div>
+                                <div id="overviewTab" class="tab-content border-black border-t-0 border-b border-r border-l p-4">
+                                    <div class="mb-9">
+                                        <h1 class="mb-2 text-[1.75rem] font-semibold text-dark">Our Vendor Marketplace</h1>
+                                        <span class="text-[1.15rem] font-medium text-muted">
+                                            Meet our talented team, a dynamic group of experts driven by passion and innovation.
+                                        </span>
+                                    </div>
+
+                                    <div class="flex flex-wrap w-full">
+                                        <div class="flex flex-col mr-5 text-center mb-11 lg:mr-16 bg-yellow-200 border-black border-2 rounded-xl p-4">
+                                            <div class="inline-block mb-4 relative shrink-0 rounded-[.95rem]">
+                                                <img class="inline-block shrink-0 rounded-[.95rem] w-[10px] h-[150px]" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtm3lmi5AAaGYV4DcpsTw-N59RmsVvyOLiZA&amp;usqp=CAU" alt="avarat image">
+                                            </div>
+                                            <div class="text-center">
+                                                <a href="./examples/The_Wall/Vendor.html" class="text-dark font-semibold hover:text-primary text-[1.25rem] transition-colors duration-200 ease-in-out">Quill</a>
+                                                <span class="block font-medium text-muted">Marketing Manager</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex flex-col mr-5 text-center mb-11 lg:mr-16 p-4 bg-yellow-100 border-black border-2 rounded-xl bg-white">
+                                            <div class="inline-block mb-4 relative shrink-0 rounded-[.95rem]">
+                                                <img class="inline-block shrink-0 rounded-[.95rem] w-[150px] h-[150px]" src="https://images.surferseo.art/bb03ac1d-a09d-48f5-b7a7-abacb853ea1c.png" alt="avarat image">
+                                            </div>
+                                            <div class="text-center">
+                                                <a href="./examples/The_Wall/Vendor.html" class="text-dark font-semibold hover:text-primary text-[1.25rem] transition-colors duration-200 ease-in-out">Creative Analytics</a>
+                                                <span class="block font-medium text-muted">Sales Executive</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex flex-col mr-5 text-center mb-11 lg:mr-16 border-black bg-yellow-100 border-2 rounded-xl p-4 bg-white">
+                                            <div class="inline-block mb-4 relative shrink-0 rounded-[.95rem]">
+                                                <img class="inline-block shrink-0 rounded-[.95rem] w-[150px] h-[150px]" src="https://images.surferseo.art/848ea0c7-76d2-4437-a91a-f7ebfa6f97e1.jpeg" alt="avarat image">
+                                            </div>
+                                            <div class="text-center">
+                                                <a href="./examples/The_Wall/Vendor.html" class="text-dark font-semibold hover:text-primary text-[1.25rem] transition-colors duration-200 ease-in-out">Business T-Shirt Club</a>
+                                                <span class="block font-medium text-muted">Customer Support</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex flex-col mr-5 text-center mb-11 lg:mr-16 border-black rounded-xl border-2 bg-yellow-200 p-4">
+                                            <div class="inline-block mb-4 relative shrink-0 rounded-[.95rem]">
+                                                <img class="inline-block shrink-0 rounded-[.95rem] w-[150px] h-[150px]" src="https://play-lh.googleusercontent.com/9o9By3LgW-2uNCk8lAeGCHFFBrJIFOGW13ULPgDqf7lHX9aLYgG4oAwUeaLwdSokGgEC" alt="avarat image">
+                                            </div>
+                                            <div class="text-center">
+                                                <a href="./examples/The_Wall/Vendor.html" class="text-dark font-semibold hover:text-primary text-[1.25rem] transition-colors duration-200 ease-in-out">New Egg Business</a>
+                                                <span class="block font-medium text-muted">Development Engineer</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex flex-col mr-5 text-center mb-11 lg:mr-16 border-black border-2 bg-yellow-200 p-4 rounded-xl">
+                                            <div class="inline-block mb-4 relative shrink-0 rounded-[.95rem]">
+                                                <img class="inline-block shrink-0 rounded-[.95rem] w-[150px] h-[150px]" src="https://img.uline.com/is/image/uline/gnr_logo_blue_SQ?&amp;wid=500&amp;qlt=100" alt="avarat image">
+                                            </div>
+                                            <div class="text-center">
+                                                <a href="./examples/The_Wall/Vendor.html" class="text-dark font-semibold hover:text-primary text-[1.25rem] transition-colors duration-200 ease-in-out">Uline</a>
+                                                <span class="block font-medium text-muted">Creative Director</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex flex-col mr-5 text-center mb-11 lg:mr-16 border-black border-2 rounded-xl bg-yellow-200 p-4 bg-white">
+                                            <div class="inline-block mb-4 relative shrink-0 rounded-[.95rem]">
+                                                <img class="inline-block shrink-0 rounded-[.95rem] w-[150px] h-[150px]" src="https://loopple.s3.eu-west-3.amazonaws.com/images/37fyRZT54RDSSErcIs4TmOYRFAyCy5wrwjoXxGtr.png" alt="avarat image">
+                                            </div>
+                                            <div class="text-center">
+                                                <a href="./examples/The_Wall/Vendor.html" class="text-dark font-semibold hover:text-primary text-[1.25rem] transition-colors duration-200 ease-in-out">Shirtsy</a>
+                                                <span class="block font-medium text-muted">Financial Analyst</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex flex-col mr-5 text-center mb-11 lg:mr-16 bg-yellow-200 rounded-xl border-black border-2 p-4 bg-white">
+                                            <div class="inline-block mb-4 relative shrink-0 rounded-[.95rem]">
+                                                <img class="inline-block shrink-0 rounded-[.95rem] w-[150px] h-[150px]" src="https://loopple.s3.eu-west-3.amazonaws.com/images/b4dNnhxZsDCSmJdiWtQK2W1APCmN34hDzVuTsFRV.jpg" alt="avarat image">
+                                            </div>
+                                            <div class="text-center">
+                                                <a href="./examples/The_Wall/Vendor.html" class="text-dark font-semibold hover:text-primary text-[1.25rem] transition-colors duration-200 ease-in-out">Office Garner</a>
+                                                <span class="block font-medium text-muted">Operations Coordinator</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="transactionsTab" class="tab-content hidden">
+                                <!-- Transactions content goes here -->
+                                <p>Here are your transactions.</p>
+                            </div>
+
+                            <div id="settingsTab" class="tab-content hidden">
+                                <iframe id="notice-iframe-faq" title="Notice FAQ" src="https:///paygeon.notice.site" style="height: 1000px; width: 100%;" frameborder="0" scrolling="no">
+                                </iframe>
+
+                            </div>
+                            <div class="grid items-center grid-cols-12 gap-6 mb-10">
+                                <div class="col-span-12 lg:col-span-7">
+                                    <div class="relative mb-5">
+                                        <div class="mb-6">
+                                            <h1 class="text-dark text-[1.75rem]/normal font-semibold">Add Your Deal</h1>
+                                            <span class="text-muted font-medium text-[1.15rem]">
+                                                Together, our team's collective passion, expertise, and commitment drive us towards excellence and enable us to deliver exceptional results for our valued clients.
+                                            </span>
+                                        </div>
+                                        <span class="text-stone-500 block font-medium pb-4 leading-[1.75]">Do you offer products or a services to other businesses on net or revolving terms?</span>
+                                        <span class="text-stone-500 block font-medium pb-4 leading-[1.75]">Join our marketplace for free and increase your market exposure with a very concentrated community of business owners looking to do business with you and increase their tradeline count on their business credit reports. Reach out to us by clicking the button and scheduling a call with our partnerships team.</span>
+                                    </div>
+                                    <div class="relative z-30 flex">
+                                        <!--begin::Item-->
+                                        <div class="lg:mr-20 mr-7">
+                                            <div class="text-dark font-bold text-[1.75rem]">
+                                                <span class="m-0" countto="100" id="countto9">100</span> %
+                                            </div>
+
+                                            <span class="text-stone-500 block font-medium text-[1.25rem]">Fullfilment</span>
+                                        </div>
+                                        <!--end::Item-->
+
+                                        <!--begin::Item-->
+                                        <div class="lg:mr-20 mr-7">
+                                            <div class="text-dark font-bold text-[1.75rem]">
+                                                <span class="m-0" countto="1250" id="countto10">1,250</span>
+                                            </div>
+
+                                            <span class="text-stone-500 block font-medium text-[1.25rem]">Clients</span>
+                                        </div>
+                                        <!--end::Item-->
+
+                                        <!--begin::Item-->
+                                        <div class="lg:mr-20 mr-7">
+                                            <div class="text-dark font-bold text-[1.75rem]">
+                                                $<span class="m-0" countto="1200000" id="countto11">1,200,000</span>
+                                            </div>
+
+                                            <span class="text-stone-500 block font-medium text-[1.25rem]">Sales</span>
+                                        </div>
+                                        <!--end::Item-->
+                                    </div>
+                                </div>
+                                <div class="col-span-12 lg:col-span-5 text-center">
+                                    <img src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/email.png" class="mx-3 mb-10" alt="illustration">
+                                    <div class="pl-12">
+                                        <a href="javascript:void(0)" class=" inline-block text-[0.925rem] font-medium leading-normal text-center align-middle cursor-pointer rounded-[.95rem] transition-colors duration-150 ease-in-out text-white bg-primary shadow-none [border:_0] p-[calc(0.55rem_+_1px)_calc(1.25rem_+_1px)] hover:bg-primary-dark active:bg-primary-dark focus:bg-primary-dark">Add Your Deal</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="flex items-stretch">
+            <div class="px-10 flex w-full flex-col md:flex-row py-3 items-center justify-center md:justify-between">
+                <div class="order-2 text-dark md:order-1">
+                    <span class="mr-1 font-medium text-muted">
+                        2023
+                    </span>
+                    <a href="javascript:;" target="_blank" class="transition-colors duration-200 ease-in-out text-secondary-inverse hover:text-primary">Loopple</a>
+                </div>
+                <ul class="flex order-1 p-0 m-0 font-medium">
+                    <li class="block py-[.15rem]">
+                        <a href="javascript:;" target="_blank" class="flex items-center px-2 cursor-pointer text-light-inverse flex-[0_0_100%] py-[.65rem] outline-none">Home</a>
+                    </li>
+                    <li class="block py-[.15rem]">
+                        <a href="javascript:;" target="_blank" class="flex items-center px-2 cursor-pointer text-light-inverse flex-[0_0_100%] py-[.65rem] outline-none">Contact Us</a>
+                    </li>
+                    <li class="block py-[.15rem]">
+                        <a href="javascript:;" target="_blank" class="flex items-center px-2 cursor-pointer text-light-inverse flex-[0_0_100%] py-[.65rem] outline-none">Terms &amp; Conditions</a>
+                    </li>
+                    <li class="block py-[.15rem]">
+                        <a href="javascript:;" target="_blank" class="flex items-center px-2 cursor-pointer text-light-inverse flex-[0_0_100%] py-[.65rem] outline-none">Privacy Policy</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <div class="loopple-alert loopple-alert-gradient-dark loopple-alert-dismissible loopple-fade loopple-position-fixed loopple-z-index-9999 loopple-bottom-2 loopple-mx-auto loopple-text-center loopple-right-0 loopple-left-0 loopple-w-50" role="alert"><strong>View and edit your project online</strong><a class="loopple-btn loopple-btn-white loopple-ml-2" href="https://www.loopple.com/builder/project-BvqAqkBzmMIJllOikOGhsjQMtg2gpIQ7Y8W" target="_blank">Editor</a><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/chartjs-plugin-datalabels.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/countup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/choices.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/choices.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/datatables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/datatable.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/paginate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/paginate.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/daterangepicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/daterangepicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/world.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/riva-dashboard.js" async></script>
+    <script src="./assets/js/loopple/loopple.js"></script>
+</body>

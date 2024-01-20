@@ -1,0 +1,671 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard Builder</title>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/css/plugins/choices.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/css/plugins/datatable.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/css/plugins/daterangepicker.css" />
+    <link rel="stylesheet" href="https://github.com/Loopple/loopple-public-assets/blob/main/riva-dashboard-tailwind/css/plugins/flatpickr.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/css/plugins/paginate.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/css/plugins/jsvectormap.min.css" />
+    <link rel="stylesheet" href="../assets/css/tailwind/tailwind.min.css">
+    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="../assets/css/loopple/loopple.css">
+</head>
+
+<body class="bg-white">
+    <aside class="group/sidebar flex flex-col shrink-0 lg:w-[300px] w-[250px] transition-all duration-300 ease-in-out -translate-x-full lg:translate-x-0 m-0 fixed z-40 inset-y-0 left-0 lg:bg-light/30 bg-light border-r border-r-dashed border-r-neutral-200 sidenav fixed-start loopple-fixed-start" id="sidenav-main">
+        <div class="sidebar-add" data-modal="sidebarModal">
+            <svg id="Layer_1" class="loopple-m-auto" width="20px" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 114 114">
+                <rect style="fill:#525f7f;" x="0.5" y="44.5" width="113" height="24" rx="9.94" ry="9.94"></rect>
+                <path style="fill:#525f7f;" d="M146.56,85A9.46,9.46,0,0,1,156,94.44v4.11a9.46,9.46,0,0,1-9.44,9.44H53.44A9.46,9.46,0,0,1,44,98.56V94.44A9.46,9.46,0,0,1,53.44,85h93.11m0-1H53.44A10.48,10.48,0,0,0,43,94.44v4.11A10.48,10.48,0,0,0,53.44,109h93.11A10.48,10.48,0,0,0,157,98.56V94.44A10.48,10.48,0,0,0,146.56,84Z" transform="translate(-43 -40)"></path>
+                <rect style="fill:#525f7f;" x="45.5" y="0.5" width="24" height="113" rx="9.94" ry="9.94"></rect>
+                <path style="fill:#525f7f;" d="M102.56,41A9.46,9.46,0,0,1,112,50.44v93.11a9.46,9.46,0,0,1-9.44,9.44H98.44A9.46,9.46,0,0,1,89,143.56V50.44A9.46,9.46,0,0,1,98.44,41h4.11m0-1H98.44A10.48,10.48,0,0,0,88,50.44v93.11A10.48,10.48,0,0,0,98.44,154h4.11A10.48,10.48,0,0,0,113,143.56V50.44A10.48,10.48,0,0,0,102.56,40Z" transform="translate(-43 -40)"></path>
+            </svg>
+        </div>
+    </aside>
+    <div class="lg:ml-[300px] relative h-full max-h-screen rounded-xl transition-all duration-200 bg-white" id="panel">
+        <nav class="flex h-28 mb-5  lg:h-[96px]" id="navbarTop" navbar-scroll="true">
+            <div class="loopple-m-auto" data-modal="navbarModal">
+                <svg id="Layer_1" class="loopple-m-auto" width="20px" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 114 114">
+                    <rect style="fill:#cacfda;" x="0.5" y="44.5" width="113" height="24" rx="9.94" ry="9.94"></rect>
+                    <path style="fill:#cacfda;" d="M146.56,85A9.46,9.46,0,0,1,156,94.44v4.11a9.46,9.46,0,0,1-9.44,9.44H53.44A9.46,9.46,0,0,1,44,98.56V94.44A9.46,9.46,0,0,1,53.44,85h93.11m0-1H53.44A10.48,10.48,0,0,0,43,94.44v4.11A10.48,10.48,0,0,0,53.44,109h93.11A10.48,10.48,0,0,0,157,98.56V94.44A10.48,10.48,0,0,0,146.56,84Z" transform="translate(-43 -40)"></path>
+                    <rect style="fill:#cacfda;" x="45.5" y="0.5" width="24" height="113" rx="9.94" ry="9.94"></rect>
+                    <path style="fill:#cacfda;" d="M102.56,41A9.46,9.46,0,0,1,112,50.44v93.11a9.46,9.46,0,0,1-9.44,9.44H98.44A9.46,9.46,0,0,1,89,143.56V50.44A9.46,9.46,0,0,1,98.44,41h4.11m0-1H98.44A10.48,10.48,0,0,0,88,50.44v93.11A10.48,10.48,0,0,0,98.44,154h4.11A10.48,10.48,0,0,0,113,143.56V50.44A10.48,10.48,0,0,0,102.56,40Z" transform="translate(-43 -40)"></path>
+                </svg>
+            </div>
+        </nav>
+        <div class="w-full px-10 py-6 mx-auto loopple-min-height-78vh text-slate-500">
+            <div class="flex flex-wrap -mx-3 mb-5 removable">
+                <div class="w-full max-w-full px-3 mb-6 sm:w-full sm:flex-none xl:mb-0">
+                    <div class="Group2" style="width: 1184px; height: 968px; position: relative">
+                        <div class="flex flex-wrap -mx-3 mb-5 removable">
+                            <div class="w-full max-w-full px-3 mb-6 sm:w-full sm:flex-none xl:mb-0">
+                                <div class="Group2" style="width: 1184px; height: 968px; position: relative">
+                                    <div class="NavigationWebFooterOnlight" style="width: 1184px; height: 86px; left: 0px; top: 882px; position: absolute">
+                                        <div class="Line" style="width: 1184px; height: 1px; left: 0px; top: 0px; position: absolute; border: 1px rgba(207, 219, 213, 0.70) solid"></div>
+                                        <div class="ButtonsLabelIconTransparentRestingOnlight" style="width: 73px; height: 46px; padding-top: 12px; padding-bottom: 13px; left: 966px; top: 20px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+                                            <div class="Link" style="justify-content: center; align-items: center; gap: 6px; display: inline-flex">
+                                                <div class="Lable" style="color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">English</div>
+                                                <div class="Icon" style="text-align: center; color: black; font-size: 18px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word"></div>
+                                            </div>
+                                        </div>
+                                        <div class="ButtonsIconOutlineRestingOnlight" style="width: 46px; height: 46px; left: 1057px; top: 21px; position: absolute">
+                                            <div class="Bg" style="width: 46px; height: 46px; left: 0px; top: 0px; position: absolute; border-radius: 8px; border: 1px rgba(207, 219, 213, 0.70) solid"></div>
+                                            <div class="Icon" style="left: 14px; top: 14px; position: absolute; text-align: center; color: black; font-size: 18px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">§</div>
+                                        </div>
+                                        <div class="Links" style="left: 80px; top: 34px; position: absolute; justify-content: flex-start; align-items: center; gap: 22px; display: inline-flex">
+                                            <div class="PrivacyPolicy" style="color: black; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">Privacy Policy</div>
+                                            <div class="License" style="color: black; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">License</div>
+                                            <div class="Api" style="color: black; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">API</div>
+                                            <div class="HelpCenter" style="color: black; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">Help Center</div>
+                                            <div class="2022AllRightsRe" style="color: #747A80; font-size: 12px; font-family: Inter; font-weight: 500; line-height: 18px; word-wrap: break-word">© 2022 All rights reserved</div>
+                                        </div>
+                                    </div>
+                                    <div class="Subtitle" style="width: 1022px; height: 52px; left: 80px; top: 90px; position: absolute">
+                                        <div class="ButtonsIconLabelTransparentRestingOnlight" style="width: 150px; height: 52px; padding-top: 15px; padding-bottom: 16px; padding-left: 6px; padding-right: 6px; left: 872px; top: 0px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+                                            <div class="Link" style="justify-content: center; align-items: center; gap: 8px; display: inline-flex">
+                                                <div class="Icon" style="text-align: center; color: black; font-size: 18px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">.</div>
+                                                <div class="Lable" style="color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Add new vendor</div>
+                                            </div>
+                                        </div>
+                                        <div class="Categories" style="width: 384px; height: 48px; left: 0px; top: 2px; position: absolute">
+                                            <div class="Bg" style="width: 384px; height: 48px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 10px"></div>
+                                            <div class="ElementTabsLabelRestingOnlight" style="width: 102px; height: 36px; padding-left: 22px; padding-right: 22px; padding-top: 9px; padding-bottom: 9px; left: 270px; top: 6px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+                                                <div class="TabTitle" style="text-align: center; color: black; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">Exchange</div>
+                                            </div>
+                                            <div class="ElementTabsLabelActiveOnlight" style="width: 128px; height: 36px; left: 6px; top: 6px; position: absolute">
+                                                <div class="BgHover" style="width: 128px; height: 36px; left: 0px; top: 0px; position: absolute; background: black; border-radius: 8px"></div>
+                                                <div class="TabTitle" style="left: 16px; top: 9px; position: absolute; text-align: center; color: white; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">Make a payment</div>
+                                            </div>
+                                            <div class="ElementTabsLabelRestingOnlight" style="width: 136px; height: 36px; padding-left: 22px; padding-right: 22px; padding-top: 9px; padding-bottom: 9px; left: 140px; top: 6px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+                                                <div class="TabTitle" style="text-align: center; color: black; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">Private transfer</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="PaymentCategories" style="width: 1022px; height: 678px; left: 80px; top: 173px; position: absolute">
+                                        <div class="Bg" style="width: 1022px; height: 676px; left: 0px; top: 1px; position: absolute; opacity: 0.60; border-radius: 12px; border: 1px #CFDBD5 solid"></div>
+                                        <div class="Line" style="width: 1px; height: 678px; left: 410px; top: 0px; position: absolute; opacity: 0.60; border: 1px #CFDBD5 solid"></div>
+                                        <div class="NavigationIosSearchBarRestingOnlight" style="width: 358px; height: 52px; left: 24px; top: 25px; position: absolute">
+                                            <div class="SaarchBg" style="width: 358px; height: 52px; left: 0px; top: 0px; position: absolute; background: white; box-shadow: 0px 3px 4px rgba(153, 155, 168, 0.25); border-radius: 8px"></div>
+                                            <div class="SaarchBgOutline" style="width: 358px; height: 52px; left: 0px; top: 0px; position: absolute; border-radius: 8px; border: 1px rgba(207, 219, 213, 0.70) solid"></div>
+                                            <div class="TypeToSearch" style="left: 47px; top: 15px; position: absolute; color: #747A80; font-size: 14px; font-family: Inter; font-weight: 400; line-height: 21px; word-wrap: break-word">Search for payment providers</div>
+                                            <div class="SearchIcon" style="left: 15px; top: 17px; position: absolute; text-align: center; color: #747A80; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">¶</div>
+                                        </div>
+                                        <div class="List" style="width: 411px; height: 593px; left: 0px; top: 82px; position: absolute">
+                                            <div class="Mask" style="width: 411px; height: 593px; left: 0px; top: 0px; position: absolute"></div>
+                                            <div class="Mask" style="width: 411px; height: 593px; left: 0px; top: 0px; position: absolute; background: black"></div>
+                                            <div class="Line" style="width: 359px; height: 1px; left: 23.50px; top: 111.50px; position: absolute; opacity: 0.60; border: 1px #0052FF solid"></div>
+                                            <div class="Line" style="width: 359px; height: 1px; left: 23.50px; top: 217.50px; position: absolute; opacity: 0.60; border: 1px #0052FF solid"></div>
+                                            <div class="Line" style="width: 359px; height: 1px; left: 23.50px; top: 323.50px; position: absolute; opacity: 0.60; border: 1px #0052FF solid"></div>
+                                            <div class="Line" style="width: 359px; height: 1px; left: 23.50px; top: 429.50px; position: absolute; opacity: 0.60; border: 1px #0052FF solid"></div>
+                                            <div class="Line" style="width: 359px; height: 1px; left: 23.50px; top: 535.50px; position: absolute; opacity: 0.60; border: 1px #0052FF solid"></div>
+                                            <div class="PaymentItemV2" style="width: 360px; height: 96px; left: 24px; top: 117px; position: absolute">
+                                                <div class="Bg" style="width: 360px; height: 96px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0); border-radius: 10px"></div>
+                                                <div class="Title" style="left: 24px; top: 17px; position: absolute; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Mobile networks</div>
+                                                <div class="Category" style="width: 198px; left: 24px; top: 42px; position: absolute; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 500; line-height: 18px; word-wrap: break-word">Top up your balance instantly with operators</div>
+                                                <div class="Icon" style="width: 44px; height: 44px; left: 296px; top: 17px; position: absolute">
+                                                    <div class="Img" style="width: 44px; height: 44px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 9999px"></div>
+                                                    <div class="Icon" style="left: 12px; top: 12px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">Ô</div>
+                                                </div>
+                                            </div>
+                                            <div class="PaymentItemV2" style="width: 360px; height: 96px; left: 24px; top: 11px; position: absolute">
+                                                <div class="Bg" style="width: 360px; height: 96px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0); border-radius: 10px"></div>
+                                                <div class="Title" style="left: 24px; top: 17px; position: absolute; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Saved vendors</div>
+                                                <div class="Category" style="width: 198px; left: 24px; top: 42px; position: absolute; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 500; line-height: 18px; word-wrap: break-word">Payments that you made most frequently</div>
+                                                <div class="Icon" style="width: 44px; height: 44px; left: 296px; top: 17px; position: absolute">
+                                                    <div class="Img" style="width: 44px; height: 44px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: linear-gradient(0deg, #0052FF 0%, #0052FF 100%), linear-gradient(0deg, rgba(255, 255, 255, 0.80) 0%, rgba(255, 255, 255, 0.80) 100%); border-radius: 9999px"></div>
+                                                    <div class="Icon" style="left: 12px; top: 12px; position: absolute; text-align: center; color: #0052FF; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">8</div>
+                                                </div>
+                                            </div>
+                                            <div class="PaymentItemV2" style="width: 360px; height: 96px; left: 24px; top: 223px; position: absolute">
+                                                <div class="Bg" style="width: 360px; height: 96px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0); border-radius: 10px"></div>
+                                                <div class="Title" style="left: 24px; top: 17px; position: absolute; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Utilities</div>
+                                                <div class="Category" style="width: 198px; left: 24px; top: 42px; position: absolute; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 500; line-height: 18px; word-wrap: break-word">Check your home utility bills and pay them instantly</div>
+                                                <div class="Icon" style="width: 44px; height: 44px; left: 296px; top: 17px; position: absolute">
+                                                    <div class="Img" style="width: 44px; height: 44px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 9999px"></div>
+                                                    <div class="Icon" style="left: 12px; top: 12px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">F</div>
+                                                </div>
+                                            </div>
+                                            <div class="PaymentItemV2" style="width: 360px; height: 96px; left: 24px; top: 329px; position: absolute">
+                                                <div class="Bg" style="width: 360px; height: 96px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0); border-radius: 10px"></div>
+                                                <div class="Title" style="left: 24px; top: 17px; position: absolute; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Financial services</div>
+                                                <div class="Category" style="width: 198px; left: 24px; top: 42px; position: absolute; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 500; line-height: 18px; word-wrap: break-word">Pay for interests, make a private transfers abroad</div>
+                                                <div class="Icon" style="width: 44px; height: 44px; left: 296px; top: 17px; position: absolute">
+                                                    <div class="Img" style="width: 44px; height: 44px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 9999px"></div>
+                                                    <div class="Icon" style="left: 12px; top: 12px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">"</div>
+                                                </div>
+                                            </div>
+                                            <div class="PaymentItemV2" style="width: 360px; height: 96px; left: 24px; top: 435px; position: absolute">
+                                                <div class="Bg" style="width: 360px; height: 96px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0); border-radius: 10px"></div>
+                                                <div class="Title" style="left: 24px; top: 17px; position: absolute; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Entertainment</div>
+                                                <div class="Category" style="width: 198px; left: 24px; top: 42px; position: absolute; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 500; line-height: 18px; word-wrap: break-word">Check your online movies and music subscriptions</div>
+                                                <div class="Icon" style="width: 44px; height: 44px; left: 296px; top: 17px; position: absolute">
+                                                    <div class="Img" style="width: 44px; height: 44px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 9999px"></div>
+                                                    <div class="Icon" style="left: 12px; top: 12px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word"></div>
+                                                </div>
+                                            </div>
+                                            <div class="PaymentItemV2" style="width: 360px; height: 96px; left: 24px; top: 541px; position: absolute">
+                                                <div class="Bg" style="width: 360px; height: 96px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0); border-radius: 10px"></div>
+                                                <div class="Title" style="left: 24px; top: 17px; position: absolute; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Government</div>
+                                                <div class="Category" style="width: 198px; left: 24px; top: 42px; position: absolute; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 500; line-height: 18px; word-wrap: break-word">Pay car fines, taxes, and government service</div>
+                                                <div class="Icon" style="width: 44px; height: 44px; left: 296px; top: 17px; position: absolute">
+                                                    <div class="Img" style="width: 44px; height: 44px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 9999px"></div>
+                                                    <div class="Icon" style="left: 12px; top: 12px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word"> </div>
+                                                </div>
+                                            </div>
+                                            <div class="ActiveItem" style="width: 1px; height: 97px; left: 410px; top: 10px; position: absolute; border: 2px #0052FF solid"></div>
+                                            <div class="Overlay" style="width: 386px; height: 185px; left: 14px; top: 408px; position: absolute; background: linear-gradient(360deg, white 0%, rgba(255, 255, 255, 0) 100%)"></div>
+                                        </div>
+                                        <div class="Templates" style="width: 611px; height: 665px; left: 411px; top: 2px; position: absolute">
+                                            <div class="Grid" style="width: 561px; height: 502px; left: 25px; top: 92px; position: absolute">
+                                                <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 196px; top: 130px; position: absolute; border: 1px black solid">
+                                                    <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                                        <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                                        <div class="Tag" style="left: 14px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$4.99</div>
+                                                    </div>
+                                                    <div class="Name" style="left: 57.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Dropbox</div>
+                                                    <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                                    </div>
+                                                </div>
+                                                <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 196px; top: 260px; position: absolute; border: 1px black solid">
+                                                    <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                                        <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                                        <div class="Tag" style="left: 12px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$19.99</div>
+                                                    </div>
+                                                    <div class="Name" style="left: 63.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Airbnb</div>
+                                                    <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                                    </div>
+                                                </div>
+                                                <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 196px; top: 0px; position: absolute; border: 1px black solid">
+                                                    <div class="ElementTagsFf4e00Onlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                                        <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; background: linear-gradient(0deg, #F20089 0%, #F20089 100%), linear-gradient(0deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%); border-radius: 8px"></div>
+                                                        <div class="Tag" style="left: 15px; top: 5px; position: absolute; text-align: center; color: #F20089; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$9.99</div>
+                                                    </div>
+                                                    <div class="Name" style="left: 43.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Apple Music</div>
+                                                    <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                                    </div>
+                                                </div>
+                                                <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 0px; top: 130px; position: absolute; border: 1px black solid">
+                                                    <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                                        <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                                        <div class="Tag" style="left: 11px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$53.50</div>
+                                                    </div>
+                                                    <div class="Name" style="left: 37.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Wise payment</div>
+                                                    <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                                    </div>
+                                                </div>
+                                                <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 391px; top: 0px; position: absolute; border: 1px black solid">
+                                                    <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                                        <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                                        <div class="Tag" style="left: 11px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$10.00</div>
+                                                    </div>
+                                                    <div class="Name" style="left: 36.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Amazon Prime</div>
+                                                    <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                                    </div>
+                                                </div>
+                                                <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 0px; top: 0px; position: absolute; border: 1px black solid">
+                                                    <div class="ElementTagsFf4e00Onlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                                        <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; background: linear-gradient(0deg, #F20089 0%, #F20089 100%), linear-gradient(0deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%); border-radius: 8px"></div>
+                                                        <div class="Tag" style="left: 12px; top: 5px; position: absolute; text-align: center; color: #F20089; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$15.29</div>
+                                                    </div>
+                                                    <div class="Name" style="left: 60.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Verizon</div>
+                                                    <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                                    </div>
+                                                </div>
+                                                <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 196px; top: 390px; position: absolute; border: 1px black solid">
+                                                    <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                                        <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                                        <div class="Tag" style="left: 15px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$2.99</div>
+                                                    </div>
+                                                    <div class="Name" style="left: 61.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Spotify</div>
+                                                    <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                                    </div>
+                                                </div>
+                                                <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 391px; top: 260px; position: absolute; border: 1px black solid">
+                                                    <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                                        <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                                        <div class="Tag" style="left: 15px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$8.99</div>
+                                                    </div>
+                                                    <div class="Name" style="left: 70.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Telia</div>
+                                                    <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                                    </div>
+                                                </div>
+                                                <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 391px; top: 390px; position: absolute; border: 1px black solid">
+                                                    <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                                        <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                                        <div class="Tag" style="left: 15px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$3.99</div>
+                                                    </div>
+                                                    <div class="Name" style="left: 51.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Box Cloud</div>
+                                                    <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                                    </div>
+                                                </div>
+                                                <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 0px; top: 390px; position: absolute; border: 1px black solid">
+                                                    <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                                        <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                                        <div class="Tag" style="left: 15px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$9.99</div>
+                                                    </div>
+                                                    <div class="Name" style="left: 58.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Airtable</div>
+                                                    <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                                    </div>
+                                                </div>
+                                                <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 0px; top: 260px; position: absolute; border: 1px black solid">
+                                                    <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                                        <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                                        <div class="Tag" style="left: 11px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$85.99</div>
+                                                    </div>
+                                                    <div class="Name" style="left: 58.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Booking</div>
+                                                    <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                                    </div>
+                                                </div>
+                                                <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 391px; top: 130px; position: absolute; border: 1px black solid">
+                                                    <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                                        <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                                        <div class="Tag" style="left: 10px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$90.00</div>
+                                                    </div>
+                                                    <div class="Name" style="left: 33.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Private transfer</div>
+                                                    <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                                        <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ButtonsIconLabelTransparentRestingOnlight" style="width: 146px; height: 52px; padding-top: 15px; padding-bottom: 16px; padding-left: 7.50px; padding-right: 7.50px; left: 233px; top: 613px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+                                                <div class="Link" style="justify-content: center; align-items: center; gap: 8px; display: inline-flex">
+                                                    <div class="Icon" style="text-align: center; color: black; font-size: 18px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">s</div>
+                                                    <div class="Lable" style="color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">See all vendors</div>
+                                                </div>
+                                            </div>
+                                            <div class="Title" style="width: 611px; height: 64px; left: 0px; top: 0px; position: absolute">
+                                                <div class="ElementWidgetTitleOnlight" style="width: 611px; height: 64px; left: 0px; top: 0px; position: absolute">
+                                                    <div class="Line" style="width: 611px; height: 1.60px; left: 0px; top: 62px; position: absolute; border: 1px rgba(207, 219, 213, 0.70) solid"></div>
+                                                    <div class="CloseIcon" style="left: 572px; top: 23px; position: absolute; text-align: center; color: black; font-size: 18px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">Ó</div>
+                                                    <div class="Title" style="left: 24px; top: 20px; position: absolute; color: black; font-size: 16px; font-family: Inter; font-weight: 700; line-height: 24px; word-wrap: break-word">Saved Vendors</div>
+                                                </div>
+                                                <div class="PendingPayments" style="left: 423px; top: 21px; position: absolute; text-align: right; color: #747A80; font-size: 14px; font-family: Inter; font-weight: 400; line-height: 21px; word-wrap: break-word">2 pending payments</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="NavigationWebTopBarWIconOnlight" style="width: 1184px; height: 84px; left: 0px; top: 0px; position: absolute">
+                                        <div class="Bg" style="width: 1184px; height: 84px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0)"></div>
+                                        <img class="Img" style="width: 40px; height: 40px; left: 1062px; top: 20px; position: absolute; border-radius: 9999px" src="https://via.placeholder.com/40x40">
+                                        <div class="ButtonsIconOutlineRestingOnlight" style="width: 40px; height: 40px; left: 1006px; top: 20px; position: absolute">
+                                            <div class="Bg" style="width: 40px; height: 40px; left: 0px; top: 0px; position: absolute; border-radius: 8px; border: 1px rgba(207, 219, 213, 0.70) solid"></div>
+                                            <div class="Icon" style="left: 11px; top: 11px; position: absolute; text-align: center; color: black; font-size: 18px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">õ</div>
+                                        </div>
+                                        <div class="ButtonsIconOutlineRestingOnlight" style="width: 40px; height: 40px; left: 80px; top: 20px; position: absolute">
+                                            <div class="Bg" style="width: 40px; height: 40px; left: 0px; top: 0px; position: absolute; border-radius: 8px; border: 1px rgba(207, 219, 213, 0.70) solid"></div>
+                                            <div class="Icon" style="left: 11px; top: 11px; position: absolute; text-align: center; color: black; font-size: 18px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">&lt;-</div>
+                                        </div>
+                                        <div class="Search" style="width: 307px; height: 40px; left: 691px; top: 20px; position: absolute">
+                                            <div class="Bg" style="width: 307px; height: 40px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0); border-radius: 8px; border: 1px rgba(207, 219, 213, 0.70) solid"></div>
+                                            <div class="SearchIcon" style="left: 23px; top: 10px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word"> </div>
+                                            <div class="TypeToSearch" style="left: 44px; top: 11px; position: absolute; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 500; line-height: 18px; word-wrap: break-word"> </div>
+                                        </div>
+                                        <div class="Title" style="left: 144px; top: 28px; position: absolute; color: black; font-size: 18px; font-family: Inter; font-weight: 800; line-height: 24px; word-wrap: break-word">Vendors</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="Subtitle" style="width: 1022px; height: 52px; left: 80px; top: 90px; position: absolute">
+                            <div class="ButtonsIconLabelTransparentRestingOnlight" style="width: 150px; height: 52px; padding-top: 15px; padding-bottom: 16px; padding-left: 6px; padding-right: 6px; left: 872px; top: 0px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+                                <div class="Link" style="justify-content: center; align-items: center; gap: 8px; display: inline-flex">
+                                    <div class="Icon" style="text-align: center; color: black; font-size: 18px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">.</div>
+                                    <div class="Lable" style="color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Add new vendor</div>
+                                </div>
+                            </div>
+                            <div class="Categories" style="width: 384px; height: 48px; left: 0px; top: 2px; position: absolute">
+                                <div class="Bg" style="width: 384px; height: 48px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 10px"></div>
+                                <div class="ElementTabsLabelRestingOnlight" style="width: 102px; height: 36px; padding-left: 22px; padding-right: 22px; padding-top: 9px; padding-bottom: 9px; left: 270px; top: 6px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+                                    <div class="TabTitle" style="text-align: center; color: black; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">Exchange</div>
+                                </div>
+                                <div class="ElementTabsLabelActiveOnlight" style="width: 128px; height: 36px; left: 6px; top: 6px; position: absolute">
+                                    <div class="BgHover" style="width: 128px; height: 36px; left: 0px; top: 0px; position: absolute; background: black; border-radius: 8px"></div>
+                                    <div class="TabTitle" style="left: 16px; top: 9px; position: absolute; text-align: center; color: white; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">Make a payment</div>
+                                </div>
+                                <div class="ElementTabsLabelRestingOnlight" style="width: 136px; height: 36px; padding-left: 22px; padding-right: 22px; padding-top: 9px; padding-bottom: 9px; left: 140px; top: 6px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+                                    <div class="TabTitle" style="text-align: center; color: black; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">Private transfer</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="PaymentCategories" style="width: 1022px; height: 678px; left: 80px; top: 173px; position: absolute">
+                            <div class="Bg" style="width: 1022px; height: 676px; left: 0px; top: 1px; position: absolute; opacity: 0.60; border-radius: 12px; border: 1px #CFDBD5 solid"></div>
+                            <div class="Line" style="width: 1px; height: 678px; left: 410px; top: 0px; position: absolute; opacity: 0.60; border: 1px #CFDBD5 solid"></div>
+                            <div class="NavigationIosSearchBarRestingOnlight" style="width: 358px; height: 52px; left: 24px; top: 25px; position: absolute">
+                                <div class="SaarchBg" style="width: 358px; height: 52px; left: 0px; top: 0px; position: absolute; background: white; box-shadow: 0px 3px 4px rgba(153, 155, 168, 0.25); border-radius: 8px"></div>
+                                <div class="SaarchBgOutline" style="width: 358px; height: 52px; left: 0px; top: 0px; position: absolute; border-radius: 8px; border: 1px rgba(207, 219, 213, 0.70) solid"></div>
+                                <div class="TypeToSearch" style="left: 47px; top: 15px; position: absolute; color: #747A80; font-size: 14px; font-family: Inter; font-weight: 400; line-height: 21px; word-wrap: break-word">Search for payment providers</div>
+                                <div class="SearchIcon" style="left: 15px; top: 17px; position: absolute; text-align: center; color: #747A80; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">¶</div>
+                            </div>
+                            <div class="List" style="width: 411px; height: 593px; left: 0px; top: 82px; position: absolute">
+                                <div class="Mask" style="width: 411px; height: 593px; left: 0px; top: 0px; position: absolute"></div>
+                                <div class="Mask" style="width: 411px; height: 593px; left: 0px; top: 0px; position: absolute; background: black"></div>
+                                <div class="Line" style="width: 359px; height: 1px; left: 23.50px; top: 111.50px; position: absolute; opacity: 0.60; border: 1px #0052FF solid"></div>
+                                <div class="Line" style="width: 359px; height: 1px; left: 23.50px; top: 217.50px; position: absolute; opacity: 0.60; border: 1px #0052FF solid"></div>
+                                <div class="Line" style="width: 359px; height: 1px; left: 23.50px; top: 323.50px; position: absolute; opacity: 0.60; border: 1px #0052FF solid"></div>
+                                <div class="Line" style="width: 359px; height: 1px; left: 23.50px; top: 429.50px; position: absolute; opacity: 0.60; border: 1px #0052FF solid"></div>
+                                <div class="Line" style="width: 359px; height: 1px; left: 23.50px; top: 535.50px; position: absolute; opacity: 0.60; border: 1px #0052FF solid"></div>
+                                <div class="PaymentItemV2" style="width: 360px; height: 96px; left: 24px; top: 117px; position: absolute">
+                                    <div class="Bg" style="width: 360px; height: 96px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0); border-radius: 10px"></div>
+                                    <div class="Title" style="left: 24px; top: 17px; position: absolute; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Mobile networks</div>
+                                    <div class="Category" style="width: 198px; left: 24px; top: 42px; position: absolute; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 500; line-height: 18px; word-wrap: break-word">Top up your balance instantly with operators</div>
+                                    <div class="Icon" style="width: 44px; height: 44px; left: 296px; top: 17px; position: absolute">
+                                        <div class="Img" style="width: 44px; height: 44px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 9999px"></div>
+                                        <div class="Icon" style="left: 12px; top: 12px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">Ô</div>
+                                    </div>
+                                </div>
+                                <div class="PaymentItemV2" style="width: 360px; height: 96px; left: 24px; top: 11px; position: absolute">
+                                    <div class="Bg" style="width: 360px; height: 96px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0); border-radius: 10px"></div>
+                                    <div class="Title" style="left: 24px; top: 17px; position: absolute; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Saved vendors</div>
+                                    <div class="Category" style="width: 198px; left: 24px; top: 42px; position: absolute; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 500; line-height: 18px; word-wrap: break-word">Payments that you made most frequently</div>
+                                    <div class="Icon" style="width: 44px; height: 44px; left: 296px; top: 17px; position: absolute">
+                                        <div class="Img" style="width: 44px; height: 44px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: linear-gradient(0deg, #0052FF 0%, #0052FF 100%), linear-gradient(0deg, rgba(255, 255, 255, 0.80) 0%, rgba(255, 255, 255, 0.80) 100%); border-radius: 9999px"></div>
+                                        <div class="Icon" style="left: 12px; top: 12px; position: absolute; text-align: center; color: #0052FF; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">8</div>
+                                    </div>
+                                </div>
+                                <div class="PaymentItemV2" style="width: 360px; height: 96px; left: 24px; top: 223px; position: absolute">
+                                    <div class="Bg" style="width: 360px; height: 96px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0); border-radius: 10px"></div>
+                                    <div class="Title" style="left: 24px; top: 17px; position: absolute; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Utilities</div>
+                                    <div class="Category" style="width: 198px; left: 24px; top: 42px; position: absolute; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 500; line-height: 18px; word-wrap: break-word">Check your home utility bills and pay them instantly</div>
+                                    <div class="Icon" style="width: 44px; height: 44px; left: 296px; top: 17px; position: absolute">
+                                        <div class="Img" style="width: 44px; height: 44px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 9999px"></div>
+                                        <div class="Icon" style="left: 12px; top: 12px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">F</div>
+                                    </div>
+                                </div>
+                                <div class="PaymentItemV2" style="width: 360px; height: 96px; left: 24px; top: 329px; position: absolute">
+                                    <div class="Bg" style="width: 360px; height: 96px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0); border-radius: 10px"></div>
+                                    <div class="Title" style="left: 24px; top: 17px; position: absolute; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Financial services</div>
+                                    <div class="Category" style="width: 198px; left: 24px; top: 42px; position: absolute; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 500; line-height: 18px; word-wrap: break-word">Pay for interests, make a private transfers abroad</div>
+                                    <div class="Icon" style="width: 44px; height: 44px; left: 296px; top: 17px; position: absolute">
+                                        <div class="Img" style="width: 44px; height: 44px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 9999px"></div>
+                                        <div class="Icon" style="left: 12px; top: 12px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">"</div>
+                                    </div>
+                                </div>
+                                <div class="PaymentItemV2" style="width: 360px; height: 96px; left: 24px; top: 435px; position: absolute">
+                                    <div class="Bg" style="width: 360px; height: 96px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0); border-radius: 10px"></div>
+                                    <div class="Title" style="left: 24px; top: 17px; position: absolute; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Entertainment</div>
+                                    <div class="Category" style="width: 198px; left: 24px; top: 42px; position: absolute; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 500; line-height: 18px; word-wrap: break-word">Check your online movies and music subscriptions</div>
+                                    <div class="Icon" style="width: 44px; height: 44px; left: 296px; top: 17px; position: absolute">
+                                        <div class="Img" style="width: 44px; height: 44px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 9999px"></div>
+                                        <div class="Icon" style="left: 12px; top: 12px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word"></div>
+                                    </div>
+                                </div>
+                                <div class="PaymentItemV2" style="width: 360px; height: 96px; left: 24px; top: 541px; position: absolute">
+                                    <div class="Bg" style="width: 360px; height: 96px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0); border-radius: 10px"></div>
+                                    <div class="Title" style="left: 24px; top: 17px; position: absolute; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Government</div>
+                                    <div class="Category" style="width: 198px; left: 24px; top: 42px; position: absolute; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 500; line-height: 18px; word-wrap: break-word">Pay car fines, taxes, and government service</div>
+                                    <div class="Icon" style="width: 44px; height: 44px; left: 296px; top: 17px; position: absolute">
+                                        <div class="Img" style="width: 44px; height: 44px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 9999px"></div>
+                                        <div class="Icon" style="left: 12px; top: 12px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word"> </div>
+                                    </div>
+                                </div>
+                                <div class="ActiveItem" style="width: 1px; height: 97px; left: 410px; top: 10px; position: absolute; border: 2px #0052FF solid"></div>
+                                <div class="Overlay" style="width: 386px; height: 185px; left: 14px; top: 408px; position: absolute; background: linear-gradient(360deg, white 0%, rgba(255, 255, 255, 0) 100%)"></div>
+                            </div>
+                            <div class="Templates" style="width: 611px; height: 665px; left: 411px; top: 2px; position: absolute">
+                                <div class="Grid" style="width: 561px; height: 502px; left: 25px; top: 92px; position: absolute">
+                                    <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 196px; top: 130px; position: absolute; border: 1px black solid">
+                                        <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                            <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                            <div class="Tag" style="left: 14px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$4.99</div>
+                                        </div>
+                                        <div class="Name" style="left: 57.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Dropbox</div>
+                                        <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                        </div>
+                                    </div>
+                                    <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 196px; top: 260px; position: absolute; border: 1px black solid">
+                                        <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                            <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                            <div class="Tag" style="left: 12px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$19.99</div>
+                                        </div>
+                                        <div class="Name" style="left: 63.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Airbnb</div>
+                                        <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                        </div>
+                                    </div>
+                                    <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 196px; top: 0px; position: absolute; border: 1px black solid">
+                                        <div class="ElementTagsFf4e00Onlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                            <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; background: linear-gradient(0deg, #F20089 0%, #F20089 100%), linear-gradient(0deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%); border-radius: 8px"></div>
+                                            <div class="Tag" style="left: 15px; top: 5px; position: absolute; text-align: center; color: #F20089; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$9.99</div>
+                                        </div>
+                                        <div class="Name" style="left: 43.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Apple Music</div>
+                                        <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                        </div>
+                                    </div>
+                                    <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 0px; top: 130px; position: absolute; border: 1px black solid">
+                                        <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                            <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                            <div class="Tag" style="left: 11px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$53.50</div>
+                                        </div>
+                                        <div class="Name" style="left: 37.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Wise payment</div>
+                                        <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                        </div>
+                                    </div>
+                                    <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 391px; top: 0px; position: absolute; border: 1px black solid">
+                                        <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                            <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                            <div class="Tag" style="left: 11px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$10.00</div>
+                                        </div>
+                                        <div class="Name" style="left: 36.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Amazon Prime</div>
+                                        <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                        </div>
+                                    </div>
+                                    <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 0px; top: 0px; position: absolute; border: 1px black solid">
+                                        <div class="ElementTagsFf4e00Onlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                            <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; background: linear-gradient(0deg, #F20089 0%, #F20089 100%), linear-gradient(0deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.85) 100%); border-radius: 8px"></div>
+                                            <div class="Tag" style="left: 12px; top: 5px; position: absolute; text-align: center; color: #F20089; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$15.29</div>
+                                        </div>
+                                        <div class="Name" style="left: 60.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Verizon</div>
+                                        <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                        </div>
+                                    </div>
+                                    <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 196px; top: 390px; position: absolute; border: 1px black solid">
+                                        <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                            <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                            <div class="Tag" style="left: 15px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$2.99</div>
+                                        </div>
+                                        <div class="Name" style="left: 61.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Spotify</div>
+                                        <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                        </div>
+                                    </div>
+                                    <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 391px; top: 260px; position: absolute; border: 1px black solid">
+                                        <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                            <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                            <div class="Tag" style="left: 15px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$8.99</div>
+                                        </div>
+                                        <div class="Name" style="left: 70.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Telia</div>
+                                        <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                        </div>
+                                    </div>
+                                    <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 391px; top: 390px; position: absolute; border: 1px black solid">
+                                        <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                            <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                            <div class="Tag" style="left: 15px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$3.99</div>
+                                        </div>
+                                        <div class="Name" style="left: 51.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Box Cloud</div>
+                                        <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                        </div>
+                                    </div>
+                                    <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 0px; top: 390px; position: absolute; border: 1px black solid">
+                                        <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                            <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                            <div class="Tag" style="left: 15px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$9.99</div>
+                                        </div>
+                                        <div class="Name" style="left: 58.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Airtable</div>
+                                        <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                        </div>
+                                    </div>
+                                    <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 0px; top: 260px; position: absolute; border: 1px black solid">
+                                        <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                            <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                            <div class="Tag" style="left: 11px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$85.99</div>
+                                        </div>
+                                        <div class="Name" style="left: 58.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Booking</div>
+                                        <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                        </div>
+                                    </div>
+                                    <div class="PaymentItemV4" style="width: 170px; height: 112px; left: 391px; top: 130px; position: absolute; border: 1px black solid">
+                                        <div class="ElementTagsF5f5faOnlight" style="width: 64px; height: 28px; left: 53px; top: 79px; position: absolute">
+                                            <div class="BgHover" style="width: 64px; height: 28px; left: 0px; top: 0px; position: absolute; opacity: 0.70; background: #EBF0F0; border-radius: 8px"></div>
+                                            <div class="Tag" style="left: 10px; top: 5px; position: absolute; text-align: center; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 700; line-height: 18px; word-wrap: break-word">$90.00</div>
+                                        </div>
+                                        <div class="Name" style="left: 33.85px; top: 50px; position: absolute; text-align: center; color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">Private transfer</div>
+                                        <div class="Bg" style="width: 36px; height: 36px; left: 68.85px; top: 0px; position: absolute">
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <div class="Mask" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute; background: #E8ECEF; border-radius: 9999px"></div>
+                                            <img class="Pic" style="width: 36px; height: 36px; left: 0px; top: 0px; position: absolute" src="https://via.placeholder.com/36x36">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ButtonsIconLabelTransparentRestingOnlight" style="width: 146px; height: 52px; padding-top: 15px; padding-bottom: 16px; padding-left: 7.50px; padding-right: 7.50px; left: 233px; top: 613px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+                                    <div class="Link" style="justify-content: center; align-items: center; gap: 8px; display: inline-flex">
+                                        <div class="Icon" style="text-align: center; color: black; font-size: 18px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">s</div>
+                                        <div class="Lable" style="color: black; font-size: 14px; font-family: Inter; font-weight: 700; line-height: 21px; word-wrap: break-word">See all vendors</div>
+                                    </div>
+                                </div>
+                                <div class="Title" style="width: 611px; height: 64px; left: 0px; top: 0px; position: absolute">
+                                    <div class="ElementWidgetTitleOnlight" style="width: 611px; height: 64px; left: 0px; top: 0px; position: absolute">
+                                        <div class="Line" style="width: 611px; height: 1.60px; left: 0px; top: 62px; position: absolute; border: 1px rgba(207, 219, 213, 0.70) solid"></div>
+                                        <div class="CloseIcon" style="left: 572px; top: 23px; position: absolute; text-align: center; color: black; font-size: 18px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">Ó</div>
+                                        <div class="Title" style="left: 24px; top: 20px; position: absolute; color: black; font-size: 16px; font-family: Inter; font-weight: 700; line-height: 24px; word-wrap: break-word">Saved Vendors</div>
+                                    </div>
+                                    <div class="PendingPayments" style="left: 423px; top: 21px; position: absolute; text-align: right; color: #747A80; font-size: 14px; font-family: Inter; font-weight: 400; line-height: 21px; word-wrap: break-word">2 pending payments</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="NavigationWebTopBarWIconOnlight" style="width: 1184px; height: 84px; left: 0px; top: 0px; position: absolute">
+                            <div class="Bg" style="width: 1184px; height: 84px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0)"></div>
+                            <img class="Img" style="width: 40px; height: 40px; left: 1062px; top: 20px; position: absolute; border-radius: 9999px" src="https://via.placeholder.com/40x40">
+                            <div class="ButtonsIconOutlineRestingOnlight" style="width: 40px; height: 40px; left: 1006px; top: 20px; position: absolute">
+                                <div class="Bg" style="width: 40px; height: 40px; left: 0px; top: 0px; position: absolute; border-radius: 8px; border: 1px rgba(207, 219, 213, 0.70) solid"></div>
+                                <div class="Icon" style="left: 11px; top: 11px; position: absolute; text-align: center; color: black; font-size: 18px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">õ</div>
+                            </div>
+                            <div class="ButtonsIconOutlineRestingOnlight" style="width: 40px; height: 40px; left: 80px; top: 20px; position: absolute">
+                                <div class="Bg" style="width: 40px; height: 40px; left: 0px; top: 0px; position: absolute; border-radius: 8px; border: 1px rgba(207, 219, 213, 0.70) solid"></div>
+                                <div class="Icon" style="left: 11px; top: 11px; position: absolute; text-align: center; color: black; font-size: 18px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word">Ë</div>
+                            </div>
+                            <div class="Search" style="width: 307px; height: 40px; left: 691px; top: 20px; position: absolute">
+                                <div class="Bg" style="width: 307px; height: 40px; left: 0px; top: 0px; position: absolute; background: rgba(215.99, 215.99, 215.99, 0); border-radius: 8px; border: 1px rgba(207, 219, 213, 0.70) solid"></div>
+                                <div class="SearchIcon" style="left: 23px; top: 10px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Material Icons Outlined; font-weight: 400; word-wrap: break-word"> </div>
+                                <div class="TypeToSearch" style="left: 44px; top: 11px; position: absolute; color: #747A80; font-size: 12px; font-family: Inter; font-weight: 500; line-height: 18px; word-wrap: break-word"> </div>
+                            </div>
+                            <div class="Title" style="left: 144px; top: 28px; position: absolute; color: black; font-size: 18px; font-family: Inter; font-weight: 800; line-height: 24px; word-wrap: break-word">Vendors</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="flex items-stretch">
+            <div class="px-10 flex w-full flex-col md:flex-row py-3 items-center justify-center md:justify-between">
+                <div class="order-2 text-dark md:order-1">
+                    <span class="mr-1 font-medium text-muted">
+                        2023
+                    </span>
+                    <a href="javascript:;" target="_blank" class="transition-colors duration-200 ease-in-out text-secondary-inverse hover:text-primary">Loopple</a>
+                </div>
+                <ul class="flex order-1 p-0 m-0 font-medium">
+                    <li class="block py-[.15rem]">
+                        <a href="javascript:;" target="_blank" class="flex items-center px-2 cursor-pointer text-light-inverse flex-[0_0_100%] py-[.65rem] outline-none">Home</a>
+                    </li>
+                    <li class="block py-[.15rem]">
+                        <a href="javascript:;" target="_blank" class="flex items-center px-2 cursor-pointer text-light-inverse flex-[0_0_100%] py-[.65rem] outline-none">Contact Us</a>
+                    </li>
+                    <li class="block py-[.15rem]">
+                        <a href="javascript:;" target="_blank" class="flex items-center px-2 cursor-pointer text-light-inverse flex-[0_0_100%] py-[.65rem] outline-none">Terms &amp; Conditions</a>
+                    </li>
+                    <li class="block py-[.15rem]">
+                        <a href="javascript:;" target="_blank" class="flex items-center px-2 cursor-pointer text-light-inverse flex-[0_0_100%] py-[.65rem] outline-none">Privacy Policy</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <div class="loopple-alert loopple-alert-gradient-dark loopple-alert-dismissible loopple-fade loopple-position-fixed loopple-z-index-9999 loopple-bottom-2 loopple-mx-auto loopple-text-center loopple-right-0 loopple-left-0 loopple-w-50" role="alert"><strong>View and edit your project online</strong><a class="loopple-btn loopple-btn-white loopple-ml-2" href="https://www.loopple.com/builder/project-BvqAqkBzmMIJllOikOGhsjQMtg2gpIQ7Y8W" target="_blank">Editor</a><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/chartjs-plugin-datalabels.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/countup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/choices.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/choices.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/datatables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/datatable.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/paginate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/paginate.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/daterangepicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/daterangepicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/world.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/riva-dashboard.js" async></script>
+    <script src="../assets/js/loopple/loopple.js"></script>
+</body>

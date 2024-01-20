@@ -1,0 +1,380 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard Builder</title>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/css/plugins/choices.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/css/plugins/datatable.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/css/plugins/daterangepicker.css" />
+    <link rel="stylesheet" href="https://github.com/Loopple/loopple-public-assets/blob/main/riva-dashboard-tailwind/css/plugins/flatpickr.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/css/plugins/paginate.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/css/plugins/jsvectormap.min.css" />
+    <link rel="stylesheet" href="../assets/css/tailwind/tailwind.min.css">
+    <link rel="stylesheet" href="../assets/css/theme.css">
+    <link rel="stylesheet" href="../assets/css/loopple/loopple.css">
+</head>
+
+<body class="bg-white">
+    <aside class="group/sidebar flex flex-col shrink-0 lg:w-[300px] w-[250px] transition-all duration-300 ease-in-out -translate-x-full lg:translate-x-0 m-0 fixed z-40 inset-y-0 left-0 lg:bg-light/30 bg-light border-r border-r-dashed border-r-neutral-200 sidenav fixed-start loopple-fixed-start" id="sidenav-main" data-sidebar="true" data-sidebar-value="469">
+        <div class="flex shrink-0 px-8 items-center justify-between h-[96px]">
+            <a class="transition-colors duration-200 ease-in-out" href="javascript:void(0)">
+                <img alt="Logo" src="https://loopple.s3.eu-west-3.amazonaws.com/images/9CgbEPWtKm4weecFafCj2ImA7IeLey9Sguh7WtrT.png" class="inline">
+            </a>
+            <div class="relative ml-5 group">
+                <button class="peer text-secondary-dark bg-transparent flex items-center h-[calc(1.5em_+_1.55rem_+_2px)] w-auto text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-[.95rem] transition-colors duration-150 ease-in-out bg-primary shadow-none [border:_0] justify-end">
+
+                    <a href="javascript:void(0)" class="lg:hidden flex" onclick="(function(){document.querySelector('.group\\/sidebar').classList.toggle('-translate-x-full');})();">
+                        <span class="p-0 m-0 -mr-1 leading-none shrink-0 rounded-[.195rem] text-secondary-dark  group-hover:text-primary group-[.open]:text-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </span>
+                    </a>
+                </button>
+            </div>
+        </div>
+
+        <div class="hidden border-b border-dashed lg:block dark:border-neutral-700/70 border-neutral-200"></div>
+
+        <div class="flex items-center justify-between px-8 py-5">
+            <div class="flex items-center mr-5">
+                <div class="mr-5">
+                    <div class="inline-block relative shrink-0 cursor-pointer rounded-[.95rem]">
+                        <img class="w-[40px] h-[40px] shrink-0 inline-block rounded-[.95rem]" src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/avatars/avatar1.jpg" alt="avatar image">
+                    </div>
+                </div>
+                <div class="mr-2 ">
+                    <a href="javascript:void(0)" class="dark:hover:text-primary hover:text-primary transition-colors duration-200 ease-in-out text-[1.075rem] font-medium dark:text-neutral-400/90 text-secondary-inverse">Robert Jason</a>
+                    <span class="text-secondary-dark dark:text-stone-500 font-medium block text-[0.85rem]">SEO Manager</span>
+                </div>
+            </div>
+            <a class="inline-flex relative items-center group justify-end text-base font-medium leading-normal text-center align-middle cursor-pointer rounded-[.95rem] transition-colors duration-150 ease-in-out text-dark bg-transparent shadow-none border-0" href="javascript:void(0)">
+                <span class="leading-none transition-colors duration-200 ease-in-out peer shrink-0 group-hover:text-primary text-secondary-dark">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                </span>
+            </a>
+        </div>
+
+        <div class="hidden border-b border-dashed lg:block dark:border-neutral-700/70 border-neutral-200"></div>
+
+        <div class="relative pl-3 my-5 overflow-y-scroll">
+            <div class="flex flex-col w-full font-medium">
+
+                <!-- menu item -->
+                <div>
+                    <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
+                        <a href="../index.html" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Home</a>
+                    </span>
+                </div>
+
+
+                <!-- menu item -->
+                <div>
+                    <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
+                        <a href="./Invoices.html" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Invoices</a>
+                    </span>
+                </div>
+
+                <!-- menu item -->
+                <div>
+                    <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
+                        <a href="javascript:;" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Settings</a>
+                    </span>
+                </div>
+
+                <!-- menu item -->
+                <div class="block pt-5 pb-[.15rem]">
+                    <div class="px-4 py-[.65rem]">
+                        <span class="font-semibold text-[0.95rem] uppercase dark:text-neutral-500/80 text-secondary-dark">Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- menu item -->
+                <div>
+                    <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
+                        <a href="./Business_Credit_Scores.html" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Business Credit Scores</a>
+                    </span>
+                </div>
+
+
+                <!-- menu item -->
+                <div>
+                    <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
+                        <a href="javascript:;" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Corporate Credit Line</a>
+                    </span>
+                </div>
+
+                <!-- menu item -->
+                <div>
+                    <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
+                        <a href="javascript:;" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Rewards</a>
+                    </span>
+                </div>
+
+                <!-- menu item -->
+                <div>
+                    <span class="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
+                        <a href="javascript:;" class="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Products</a>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+    </aside>
+    <div class="lg:ml-[300px] relative h-full max-h-screen rounded-xl transition-all duration-200 bg-white" id="panel">
+        <script src="https://producter-team.github.io/Widget-Builds/feedback/index.js"></script>
+        <nav class="flex h-28 mb-5 lg:h-[96px]" id="navbarTop" navbar-scroll="true" data-navbar="true" data-navbar-value="512">
+            <div class="sm:flex items-stretch justify-between grow lg:mb-0 mb-5 py-5 px-10">
+                <div class="flex flex-col flex-wrap justify-center mb-5 mr-3 lg:mb-0">
+                    <span class="my-0 flex text-dark font-semibold text-[1.35rem]/[1.2] flex-col justify-center">Settings</span>
+                    <span class="pt-1 text-secondary-dark text-[0.95rem] font-medium">
+                        See all your notifications
+                    </span>
+                </div>
+                <div class="flex items-center lg:shrink-0 lg:flex-nowrap">
+                    <div class="relative flex items-center lg:ml-4 sm:mr-0 mr-2">
+                        <span class="absolute ml-4 leading-none -translate-y-1/2 top-1/2 text-muted">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path>
+                            </svg>
+                        </span>
+                        <input class="block w-full py-3 pl-12 pr-4 text-base font-medium leading-normal bg-white border border-solid outline-none appearance-none placeholder:text-secondary-dark peer text-stone-500 border-stone-200 bg-clip-padding rounded-2xl" placeholder="Search..." type="text">
+                        <span onclick="(() => { this.previousElementSibling.value=''})()" class="absolute right-0 left-auto mr-4 leading-none -translate-y-1/2 peer-placeholder-shown:hidden top-1/2 hover:text-primary text-muted">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="relative lg:hidden flex items-center sm:ml-2 ml-auto">
+                        <a href="javascript:void(0)" class="flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary" onclick="(function(){document.querySelector('.group\\/sidebar').classList.toggle('-translate-x-full');})();">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="relative flex items-center ml-2 lg:ml-4">
+                        <a href="./Settings.html" class="flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary ">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="relative flex items-center ml-2 lg:ml-4">
+                        <a href="javascript:void(0)" class="flex items-center justify-center w-12 h-12 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out bg-transparent border border-solid shadow-none cursor-pointer rounded-2xl text-stone-500 border-stone-200 hover:text-primary active:text-primary focus:text-primary ">
+
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="w-full px-10 py-6 mx-auto loopple-min-height-78vh text-slate-500">
+            <div class="flex flex-wrap -mx-3 mb-5 removable">
+                <div class="w-full max-w-full px-3 mb-6 sm:w-full sm:flex-none xl:mb-0">
+                    <div id="producter-feedback-widget"></div>
+                    <script>
+                        window.addEventListener("DOMContentLoaded", () => {
+                          new ProducterFeedbackWidget("7b5ff465-a6ed-4d2b-bcae-dc1db48801e6");
+                        });
+                    </script>
+                </div>
+            </div>
+            <div class="relative flex flex-col w-full min-w-0 mb-6 break-words border border-dashed bg-clip-border rounded-2xl border-stone-200 bg-light/30">
+                <!-- card body -->
+                <div class="px-9 pt-9 flex-auto min-h-[70px] pb-0 bg-transparent">
+                    <div class="flex flex-wrap mb-6 xl:flex-nowrap">
+                        <div class="mb-5 mr-5">
+                            <div class="relative inline-block shrink-0 rounded-2xl">
+                                <img class="inline-block shrink-0 rounded-2xl w-[80px] h-[80px] lg:w-[160px] lg:h-[160px]" src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/avatars/avatar1.jpg" alt="image">
+                                <div class="group/tooltip relative">
+
+                                    <span class="text-xs absolute z-10 transition-opacity duration-300 ease-in-out px-3 py-2 whitespace-nowrap text-center transform bg-white rounded-2xl shadow-sm bottom-0 -mb-2 start-full ml-4 font-medium text-secondary-inverse group-hover/tooltip:opacity-100 opacity-0 block"> Status: Active </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grow">
+                            <div class="flex flex-wrap items-start justify-between mb-2">
+                                <div class="flex flex-col">
+                                    <div class="flex items-center mb-2">
+                                        <a class="text-secondary-inverse hover:text-primary transition-colors duration-200 ease-in-out font-semibold text-[1.5rem] mr-1" href="javascript:void(0)"> Alec Jhonson </a>
+                                    </div>
+                                    <div class="flex flex-wrap pr-2 mb-4 font-medium">
+                                        <a class="flex items-center mb-2 mr-5 text-secondary-dark hover:text-primary" href="javascript:void(0)">
+                                            <span class="mr-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                                    <path fill-rule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path>
+                                                </svg>
+                                            </span> New York, NY </a>
+                                        <a class="flex items-center mb-2 mr-5 text-secondary-dark hover:text-primary" href="javascript:void(0)">
+                                            <span class="mr-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                                    <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"></path>
+                                                    <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"></path>
+                                                </svg>
+                                            </span> contact@example.com </a>
+                                    </div>
+                                </div>
+                                <div class="flex flex-wrap my-auto">
+                                    <a href="javascript:void(0)" class="inline-block px-6 py-3 mr-3 text-base font-medium leading-normal text-center align-middle transition-colors duration-150 ease-in-out border-0 shadow-none cursor-pointer rounded-2xl text-muted bg-light border-light hover:bg-light-dark active:bg-light-dark focus:bg-light-dark "> Follow </a>
+                                    <a href="javascript:void(0)" class="inline-block px-6 py-3 text-base font-medium leading-normal text-center text-white align-middle transition-colors duration-150 ease-in-out border-0 shadow-none cursor-pointer rounded-2xl bg-primary hover:bg-primary-dark active:bg-primary-dark focus:bg-primary-dark "> Hire </a>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap justify-between">
+                                <div class="flex flex-wrap items-center">
+                                    <a href="javascript:void(0)" class="mr-3 mb-2 inline-flex items-center justify-center text-secondary-inverse rounded-full bg-neutral-100 hover:bg-neutral-200 transition-all duration-200 ease-in-out px-3 py-1 text-sm font-medium leading-normal">320 Vendors</a>
+
+                                    <a href="javascript:void(0)" class="mr-3 mb-2 inline-flex items-center justify-center text-secondary-inverse rounded-full bg-neutral-100 hover:bg-neutral-200 transition-all duration-200 ease-in-out px-3 py-1 text-sm font-medium leading-normal">48 Unpaid Invoices</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="w-full h-px border-neutral-200">
+                    <ul nav-tabs="" class="group flex flex-wrap items-stretch text-[1.15rem] font-semibold list-none border-b-2 border-transparent border-solid active-history">
+                        <li class="flex mt-2 -mb-[2px]">
+                            <a aria-controls="summary" class="py-5 mr-1 sm:mr-3 lg:mr-10 transition-colors duration-200 ease-in-out border-b-2 border-transparent group-[.active-summary]:border-primary group-[.active-summary]:text-primary text-muted hover:border-primary" href="javascript:void(0)"> Summary </a>
+                        </li>
+                        <li class="flex mt-2 -mb-[2px]">
+                            <a aria-controls="assignments" class="py-5 mr-1 sm:mr-3 lg:mr-10 transition-colors duration-200 ease-in-out border-b-2 border-transparent group-[.active-assignments]:border-primary group-[.active-assignments]:text-primary text-muted hover:border-primary" href="javascript:void(0)">Account Documents</a>
+                        </li>
+                        <li class="flex mt-2 -mb-[2px]">
+                            <a aria-controls="marketing" class="py-5 mr-1 sm:mr-3 lg:mr-10 transition-colors duration-200 ease-in-out border-b-2 border-transparent group-[.active-marketing]:border-primary group-[.active-marketing]:text-primary text-muted hover:border-primary" href="javascript:void(0)">Business</a>
+                        </li>
+                        <li class="flex mt-2 -mb-[2px]">
+                            <a aria-controls="followers" class="py-5 mr-1 sm:mr-3 lg:mr-10 transition-colors duration-200 ease-in-out border-b-2 border-transparent group-[.active-followers]:border-primary group-[.active-followers]:text-primary text-muted hover:border-primary" href="javascript:void(0)">Chat Support</a>
+                        </li>
+                        <li class="flex mt-2 -mb-[2px] group">
+                            <a aria-controls="history" class="py-5 mr-1 sm:mr-3 lg:mr-10 transition-colors duration-200 ease-in-out border-b-2 border-transparent group-[.active-history]:border-primary group-[.active-history]:text-primary text-muted hover:border-primary" href="javascript:void(0)">Data Request (CA Residents Only)</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-5 removable">
+                <div class="w-full max-w-full px-3 mb-6 sm:w-full sm:flex-none xl:mb-0">
+                    <div class="container mx-auto p-4">
+                        <h2 class="text-2xl font-semibold mb-4">Account Settings</h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Personal Information -->
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Personal Information</h3>
+                                <form>
+                                    <div class="mb-4">
+                                        <label for="fullName" class="block text-sm font-medium text-gray-600">Full Name</label>
+                                        <input type="text" id="fullName" name="fullName" class="mt-1 p-2 w-full border rounded-md">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="phoneNumber" class="block text-sm font-medium text-gray-600">Phone Number</label>
+                                        <input type="tel" id="phoneNumber" name="phoneNumber" class="mt-1 p-2 w-full border rounded-md">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="email" class="block text-sm font-medium text-gray-600">Email Address</label>
+                                        <input type="email" id="email" name="email" class="mt-1 p-2 w-full border rounded-md">
+                                    </div>
+                                    <!-- Add more fields like address, date of birth, etc. -->
+
+                                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Save Changes</button>
+                                </form>
+                            </div>
+
+                            <!-- Security Settings -->
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Security Settings</h3>
+                                <form>
+                                    <div class="mb-4">
+                                        <label for="currentPassword" class="block text-sm font-medium text-gray-600">Current Password</label>
+                                        <input type="password" id="currentPassword" name="currentPassword" class="mt-1 p-2 w-full border rounded-md">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="newPassword" class="block text-sm font-medium text-gray-600">New Password</label>
+                                        <input type="password" id="newPassword" name="newPassword" class="mt-1 p-2 w-full border rounded-md">
+                                    </div>
+                                    <!-- Add more fields for password confirmation, two-factor authentication, etc. -->
+
+                                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Update Security</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Notifications -->
+                        <div class="mt-8">
+                            <h3 class="text-xl font-semibold mb-2">Notifications</h3>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <input type="checkbox" id="emailNotifications" name="emailNotifications" class="h-4 w-4 text-blue-500 border-gray-300 rounded">
+                                    <label for="emailNotifications" class="ml-2">Email Notifications</label>
+                                </div>
+                                <!-- Add more notification options like SMS, in-app notifications, etc. -->
+
+                                <button class="bg-blue-500 text-white py-2 px-4 rounded-md">Save Notification Settings</button>
+                            </div>
+                        </div>
+
+                        <!-- Request Data for CA Residents -->
+                        <div class="mt-8">
+                            <h3 class="text-xl font-semibold mb-2">Request Data for California Residents</h3>
+                            <p class="text-gray-500">As a California resident, you have the right to request the personal information we collect about you. To make a request, please complete the form below:</p>
+                            <form>
+                                <!-- Add fields for the California resident data request -->
+
+                                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md mt-4">Submit Request</button>
+                            </form>
+                        </div>
+
+                        <!-- Closing Note -->
+                        <p class="mt-8 text-gray-500">Please note that changing certain settings may require additional verification for security reasons.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="flex items-stretch">
+            <div class="px-10 flex w-full flex-col md:flex-row py-3 items-center justify-center md:justify-between">
+                <div class="order-2 text-dark md:order-1">
+                    <span class="mr-1 font-medium text-muted">
+                        2023
+                    </span>
+                    <a href="javascript:;" target="_blank" class="transition-colors duration-200 ease-in-out text-secondary-inverse hover:text-primary">Loopple</a>
+                </div>
+                <ul class="flex order-1 p-0 m-0 font-medium">
+                    <li class="block py-[.15rem]">
+                        <a href="javascript:;" target="_blank" class="flex items-center px-2 cursor-pointer text-light-inverse flex-[0_0_100%] py-[.65rem] outline-none">Home</a>
+                    </li>
+                    <li class="block py-[.15rem]">
+                        <a href="javascript:;" target="_blank" class="flex items-center px-2 cursor-pointer text-light-inverse flex-[0_0_100%] py-[.65rem] outline-none">Contact Us</a>
+                    </li>
+                    <li class="block py-[.15rem]">
+                        <a href="javascript:;" target="_blank" class="flex items-center px-2 cursor-pointer text-light-inverse flex-[0_0_100%] py-[.65rem] outline-none">Terms &amp; Conditions</a>
+                    </li>
+                    <li class="block py-[.15rem]">
+                        <a href="javascript:;" target="_blank" class="flex items-center px-2 cursor-pointer text-light-inverse flex-[0_0_100%] py-[.65rem] outline-none">Privacy Policy</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <div class="loopple-alert loopple-alert-gradient-dark loopple-alert-dismissible loopple-fade loopple-position-fixed loopple-z-index-9999 loopple-bottom-2 loopple-mx-auto loopple-text-center loopple-right-0 loopple-left-0 loopple-w-50" role="alert"><strong>View and edit your project online</strong><a class="loopple-btn loopple-btn-white loopple-ml-2" href="https://www.loopple.com/builder/project-BvqAqkBzmMIJllOikOGhsjQMtg2gpIQ7Y8W" target="_blank">Editor</a><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/chartjs-plugin-datalabels.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/countup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/choices.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/choices.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/datatables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/datatable.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/paginate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/paginate.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/daterangepicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/daterangepicker.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/plugins/world.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/scripts/riva-dashboard.js" async></script>
+    <script src="../assets/js/loopple/loopple.js"></script>
+</body>
